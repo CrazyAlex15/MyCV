@@ -85,12 +85,6 @@
             font-size: 1rem;
         }
         .btn:hover { transform: translateY(-2px); }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            box-shadow: none;
-        }
-        .btn-outline:hover { background: rgba(59, 130, 246, 0.1); }
 
         /* Back to Top Button */
         #backToTop {
@@ -191,7 +185,6 @@
             </p>
             <div class="btn-group">
                 <button class="btn" onclick="copyEmail(this, 'button')">Get in Touch</button>
-                <a href="cv.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
             </div>
         </header>
 
@@ -289,6 +282,18 @@
                     <h3>HiddenVC-Bot</h3>
                     <p>Privacy-focused voice channel manager allowing users to create temporary hidden rooms.</p>
                     <div class="tags"><span>Python</span> <span>Privacy</span></div>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-chart-line project-icon"></i>
+                    <h3>Crypto-Trading-Bot</h3>
+                    <p>Automated trading algorithm that analyzes market trends and executes buy/sell orders via Binance API.</p>
+                    <div class="tags"><span>Python</span> <span>Binance API</span> <span>Finance</span></div>
+                </div>
+                <div class="project-card">
+                    <i class="fas fa-wifi project-icon"></i>
+                    <h3>Net-Speed-Monitor</h3>
+                    <p>Automated network performance logger hosted on Raspberry Pi. Tracks uptime, latency, and bandwidth speeds.</p>
+                    <div class="tags"><span>Python</span> <span>Networking</span> <span>Data Analysis</span></div>
                 </div>
             </div>
         </section>
