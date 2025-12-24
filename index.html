@@ -38,7 +38,25 @@
             padding: 20px 0;
             margin-bottom: 50px;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1; 
+        }
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            background: linear-gradient(to right, var(--primary), var(--accent)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .surname {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text);
+            letter-spacing: 1px;
+        }
+
         .socials a, .socials button { 
             color: var(--text); font-size: 1.2rem; margin-left: 15px; 
             transition: color 0.3s; background: none; border: none; cursor: pointer; padding: 0;
@@ -67,7 +85,13 @@
             font-size: 1rem;
         }
         .btn:hover { transform: translateY(-2px); }
-        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        .btn-outline:hover { background: rgba(59, 130, 246, 0.1); }
+
         /* Back to Top Button */
         #backToTop {
             position: fixed;
@@ -81,15 +105,12 @@
             height: 50px;
             font-size: 1.2rem;
             cursor: pointer;
-            display: none; /* Hidden by default */
+            display: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             transition: 0.3s;
             z-index: 1000;
         }
-        #backToTop:hover {
-            transform: translateY(-5px);
-            background: var(--accent);
-        }
+        #backToTop:hover { transform: translateY(-5px); background: var(--accent); }
 
         /* Titles */
         h2 { font-size: 2rem; margin-bottom: 30px; border-left: 4px solid var(--primary); padding-left: 15px; }
@@ -110,25 +131,14 @@
         .company { color: var(--primary); font-weight: 600; margin-bottom: 10px; display: block; }
         .date { float: right; font-size: 0.9rem; color: var(--text-muted); background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px; }
 
-        /* Skills Grid Styling */
+        /* Skills Grid */
         .skills-grid {
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
-            gap: 20px; 
-            margin-bottom: 60px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; margin-bottom: 60px;
         }
         .skill-item {
-            background: var(--card-bg); 
-            padding: 20px; 
-            border-radius: 12px; 
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05); 
-            transition: 0.3s; 
-            font-weight: bold;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            background: var(--card-bg); padding: 20px; border-radius: 12px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; font-weight: bold;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
         }
         .skill-item i { font-size: 2.5rem; color: var(--accent); transition: 0.3s; }
         .skill-item:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: var(--primary); }
@@ -162,7 +172,10 @@
 
     <div class="container">
         <nav>
-            <div class="logo">Alexandros.</div>
+            <div class="nav-brand">
+                <span class="logo">Alexandros</span>
+                <span class="surname">Christoforou.</span>
+            </div>
             <div class="socials">
                 <a href="https://github.com/CrazyAlex15" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://discord.gg/4jgQZVtZ66" target="_blank"><i class="fab fa-discord"></i></a>
@@ -178,6 +191,7 @@
             </p>
             <div class="btn-group">
                 <button class="btn" onclick="copyEmail(this, 'button')">Get in Touch</button>
+                <a href="cv.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
             </div>
         </header>
 
@@ -309,14 +323,6 @@
                 </div>
             </div>
         </section>
-        
-        <section>
-            <h2>Coding Activity</h2>
-            <div class="job-card" style="text-align: center; overflow-x: auto;">
-                <img src="https://gh-chart.rshah.org/3b82f6/CrazyAlex15" alt="CrazyAlex15's Github Chart" style="min-width: 600px;">
-                <p style="margin-top: 10px; color: #a3a3a3; font-size: 0.9rem;">My contribution graph on GitHub.</p>
-            </div>
-        </section>
 
         <footer>
             <p>&copy; 2025 Alexandros. Built with ❤️ and Code.</p>
@@ -346,16 +352,13 @@
 
         // Back to Top Logic
         const backToTopBtn = document.getElementById("backToTop");
-
         window.onscroll = function() {
-            // Εμφάνιση κουμπιού όταν κατέβεις 300px
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 backToTopBtn.style.display = "block";
             } else {
                 backToTopBtn.style.display = "none";
             }
         };
-
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
